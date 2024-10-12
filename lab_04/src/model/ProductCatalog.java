@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author aditi
  */
 public class ProductCatalog {
-    private ArrayList<Product> productCatalog;
+     private ArrayList<Product> productCatalog;
     public ProductCatalog(){
         productCatalog= new ArrayList<Product>();
     }
@@ -28,7 +28,7 @@ public class ProductCatalog {
     }
     public Product searchProduct(int id){
         for(Product p: productCatalog){
-            if(p.getId()=id){
+            if(p.getId() == id) {
                 return p;
             }
         }

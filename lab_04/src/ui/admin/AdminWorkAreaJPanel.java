@@ -4,6 +4,12 @@
  */
 package ui.admin;
 
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JPanel;
+import model.SupplierDirectory;
+import ui.LoginScreen;
+
 /**
  *
  * @author aditi
@@ -13,8 +19,14 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AdminWorkAeaJPanel
      */
-    public AdminWorkAreaJPanel() {
+    JPanel mainWorkArea;
+    SupplierDirectory supplierDirectory;
+    public AdminWorkAreaJPanel(JPanel mainWorkArea, SupplierDirectory supplierDirectory) {
         initComponents();
+        this.mainWorkArea = mainWorkArea;
+        this.supplierDirectory = supplierDirectory;
+        
+        lblWelcome.setText("Welcome to Lab 4!");
     }
 
     /**
@@ -103,15 +115,28 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageSuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSuppliersActionPerformed
-        // TODO add your handling code here:
+        ManageSuppliers panel = new ManageSuppliers(workArea, supplierDirectory);
+        workArea.add("ManageSupplierAdministrative", panel);
+        CardLayout layout= (CardLayout)workArea.getLayout();
+        layout.next(workArea);
+        
 
     }//GEN-LAST:event_btnManageSuppliersActionPerformed
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
-        // TODO add your handling code here:
+       mainWorkArea.remove(this);
+       Component[] componentArray= mainWorkArea.getComponents();
+       Component component= componentArray(componentArray.length-1);
+       LoginScreen loginPanel= (LoginScreen)component;
+       
+       CardLayout layout=(CardLayout)mainWorkArea.getLayout();
+       layout.previous(mainWorkArea);
 
     }//GEN-LAST:event_btnLogOutActionPerformed
-
+    @Override
+    public String toString(){
+        return "Administrator";
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogOut;
@@ -121,4 +146,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
+
+    private Component componentArray(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

@@ -22,8 +22,8 @@ public class ViewAccountJPanel extends javax.swing.JPanel {
     
     public ViewAccountJPanel(JPanel userProcessContainer, AccountDirectory accountDirectory, Account account) {
         initComponents();
-        this.userProcessContainer= userProcessContainer;
-        this.account= account;
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
         
         refreshTextFields();
         setViewMode();

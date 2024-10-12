@@ -150,7 +150,7 @@ public class AddSupplier extends javax.swing.JPanel {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        backAction();
+        
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void btnAttachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAttachActionPerformed
@@ -164,13 +164,7 @@ public class AddSupplier extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnAddSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierActionPerformed
-        // TODO add your handling code here:
-        Supplier supplier = supplierDirectory.addSupplier();
-        supplier.setSupplyName(txtName.getText());
-        supplier.setLogoImage(logoImage);
-
-        JOptionPane.showMessageDialog(this, "Supplier successfully added", "Warning", JOptionPane.INFORMATION_MESSAGE);
-        backAction();
+        
     }//GEN-LAST:event_btnAddSupplierActionPerformed
 
 
