@@ -21,13 +21,12 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
      * Creates new form SupplierWorkAreaJPanel
      */
     
-    public SupplierWorkAreaJPanel(JPanel mainWorkArea, Supplier selectedSupplier) {
-        initComponents();
-         initComponents();
-        this.mainWorkArea = mainWorkArea;
+    public SupplierWorkAreaJPanel(JPanel mainWorkArea, Supplier supplier) {
+       initComponents();
+       this.mainWorkArea= mainWorkArea;
+       this.supplier = supplier;
+        if (supplier != null) lblWelcome.setText("Welcome to Lab 4, "+supplier.getSupplyName());
         
-        this.supplier = supplier;
-        // if (supplier != null) lblWelcome.setText("Welcome to Lab 4, "+supplier.getSupplyName());
         
     }
 
@@ -41,14 +40,14 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
+        menuBar = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
         btnManageProductCatalog = new javax.swing.JButton();
         btnSupplierProfile = new javax.swing.JButton();
         btnManageStaff = new javax.swing.JButton();
         Performance = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        workArea = new javax.swing.JPanel();
 
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
@@ -87,54 +86,43 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(lblWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                .addGap(413, 413, 413)
+        javax.swing.GroupLayout menuBarLayout = new javax.swing.GroupLayout(menuBar);
+        menuBar.setLayout(menuBarLayout);
+        menuBarLayout.setHorizontalGroup(
+            menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuBarLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnManageProductCatalog)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSupplierProfile)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageStaff)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Performance)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLogOut)
-                .addGap(38, 38, 38))
+                .addGap(547, 547, 547))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnManageProductCatalog)
-                        .addComponent(btnSupplierProfile)
-                        .addComponent(btnManageStaff)
-                        .addComponent(Performance)
-                        .addComponent(btnLogOut))
-                    .addComponent(lblWelcome))
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
-
-        jSplitPane1.setTopComponent(jPanel1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1271, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 589, Short.MAX_VALUE)
+        menuBarLayout.setVerticalGroup(
+            menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuBarLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblWelcome)
+                    .addComponent(btnManageProductCatalog)
+                    .addComponent(btnSupplierProfile)
+                    .addComponent(btnManageStaff)
+                    .addComponent(Performance)
+                    .addComponent(btnLogOut))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setRightComponent(jPanel2);
+        jSplitPane1.setTopComponent(menuBar);
+
+        workArea.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(workArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -149,15 +137,22 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageProductCatalogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProductCatalogActionPerformed
-        // TODO add your handling code here:
         ManageProductCatalogJPanel mpcjp = new ManageProductCatalogJPanel(workArea, supplier);
         workArea.add("ManageProductCatalogJPanel", mpcjp);
         CardLayout layout = (CardLayout) workArea.getLayout();
         layout.next(workArea);
+    
+
     }//GEN-LAST:event_btnManageProductCatalogActionPerformed
 
     private void btnSupplierProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierProfileActionPerformed
         // TODO add your handling code here:
+        UpdateSupplier us = new UpdateSupplier(workArea, supplier); 
+        workArea.add("AddSupplier", us);
+    
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+        
     }//GEN-LAST:event_btnSupplierProfileActionPerformed
 
     private void PerformanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerformanceActionPerformed
@@ -192,9 +187,9 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageProductCatalog;
     private javax.swing.JButton btnManageStaff;
     private javax.swing.JButton btnSupplierProfile;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblWelcome;
+    private javax.swing.JPanel menuBar;
+    private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
 }

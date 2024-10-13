@@ -9,6 +9,9 @@ package model;
  * @author aditi
  */
 public class Feature {
+
+    public Feature() {
+    }
     private Product owner;
     private String name;
     private Object value;
@@ -35,5 +38,6 @@ public class Feature {
     @Override
     public String toString(){
         return name;
-    }         
+    }   
+    
 }
