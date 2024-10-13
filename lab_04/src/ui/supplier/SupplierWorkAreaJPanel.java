@@ -25,8 +25,8 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
        initComponents();
        this.mainWorkArea= mainWorkArea;
        this.supplier = supplier;
-        if (supplier != null) lblWelcome.setText("Welcome to Lab 4, "+supplier.getSupplyName());
-        
+       if (supplier != null) lblWelcome.setText("Welcome to Lab 4, "+supplier.getSupplyName());
+       btnSupplierProfile.setEnabled(true);
         
     }
 
@@ -95,9 +95,9 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(lblWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnManageProductCatalog)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnSupplierProfile)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnManageStaff)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Performance)
@@ -138,7 +138,7 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageProductCatalogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProductCatalogActionPerformed
         ManageProductCatalogJPanel mpcjp = new ManageProductCatalogJPanel(workArea, supplier);
-        workArea.add("ManageProductCatalogJPanel", mpcjp);
+        workArea.add("ManageProductCatalogJPanel2", mpcjp);
         CardLayout layout = (CardLayout) workArea.getLayout();
         layout.next(workArea);
     
@@ -147,7 +147,7 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnSupplierProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierProfileActionPerformed
         // TODO add your handling code here:
-        UpdateSupplier us = new UpdateSupplier(workArea, supplier); 
+        UpdateSupplier us = new UpdateSupplier(workArea, supplier,lblWelcome); 
         workArea.add("AddSupplier", us);
     
         CardLayout layout = (CardLayout) workArea.getLayout();

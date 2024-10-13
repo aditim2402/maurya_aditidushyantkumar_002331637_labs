@@ -41,7 +41,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         this.workArea = workArea;
         this.product = product;
 
-         txtName.setText(this.product.getName());
+        txtName.setText(this.product.getName());
         txtId.setText(String.valueOf(this.product.getId()));
         txtPrice.setText(String.valueOf(this.product.getPrice()));
         if (product.getProdImage() != null) imgLogo.setIcon(product.getProdImage());
@@ -261,7 +261,8 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-       product.setPrice(Integer.parseInt(txtPrice.getText()));
+      
+      product.setPrice(Integer.parseInt(txtPrice.getText()));
       product.setName(txtName.getText());
       saveFeatures();
       product.setProdImage(prodImage);
@@ -313,7 +314,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        txtName.setEditable(true);
+       txtName.setEditable(true);
         txtPrice.setEditable(true);
         btnSave.setEnabled(true);
         tblFeatures.setEnabled(true);

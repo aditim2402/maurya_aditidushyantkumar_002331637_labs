@@ -31,6 +31,7 @@ public class CreateNewProductJPanel extends javax.swing.JPanel {
      */
     Supplier supplier;
     JPanel workArea;
+    
    
     private final JFileChooser fileChooser = new JFileChooser();
     ImageIcon prodImage;

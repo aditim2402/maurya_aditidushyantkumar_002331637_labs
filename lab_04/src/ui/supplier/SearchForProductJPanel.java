@@ -46,6 +46,12 @@ public class SearchForProductJPanel extends javax.swing.JPanel {
 
         lblProductId.setText("Product Id:");
 
+        idField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idFieldActionPerformed(evt);
+            }
+        });
+
         searchButton.setText("Search Now >>");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +109,7 @@ public class SearchForProductJPanel extends javax.swing.JPanel {
             if (foundProduct != null){
                 
                 ViewProductDetailJPanel vpdjp = new ViewProductDetailJPanel (workArea, foundProduct);
-                workArea.add("ViewProductDetailJPanel", vpdjp);
+                workArea.add("ViewProductDetailJPanel2", vpdjp);
                 CardLayout layout = (CardLayout) workArea.getLayout();
                 layout.next(workArea);
             }
@@ -124,6 +130,10 @@ public class SearchForProductJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.previous(workArea);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

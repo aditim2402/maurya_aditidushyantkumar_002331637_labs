@@ -14,7 +14,15 @@ public class Supplier {
  private String supplyName;
     private ProductCatalog productCatalog;
     private ImageIcon logoImage;
+    private String Description;
+    public String getDescription() {
+        return Description;
+    }
 
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+  
     public ImageIcon getLogoImage() {
         return logoImage;
     }
