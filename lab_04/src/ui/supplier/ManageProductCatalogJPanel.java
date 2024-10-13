@@ -217,11 +217,7 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
             row[2]=p.getPrice();
             model.addRow(row);
         }
-    if (supplier.getLogoImage() != null) {
-        imgLogo.setIcon(supplier.getLogoImage());
-    } else {
-        imgLogo.setText("No Image");
-    }
+    
     }
     }
 
