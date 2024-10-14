@@ -73,7 +73,7 @@ public class Product {
         return count;
     }
 
-    public Feature addNewFeature() {
+    public Feature addNewFeature(Product product) {
     Feature newFeature = new Feature();
     features.add(newFeature);  // Add the new feature to the list
     return newFeature;

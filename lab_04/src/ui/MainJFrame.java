@@ -21,8 +21,8 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         supplierDirectory = new SupplierDirectory();
-        setSize(800,600);
-        setResizable(false);
+        setSize(1000,400);
+        setResizable(true);
        
         
         setLoginScreen();

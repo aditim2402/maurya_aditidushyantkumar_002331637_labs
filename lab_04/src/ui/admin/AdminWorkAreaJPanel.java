@@ -81,16 +81,12 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         menuBarLayout.setVerticalGroup(
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuBarLayout.createSequentialGroup()
-                .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menuBarLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(lblWelcome))
-                    .addGroup(menuBarLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnManageSuppliers)
-                            .addComponent(btnLogOut))))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnManageSuppliers)
+                    .addComponent(btnLogOut)
+                    .addComponent(lblWelcome))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         splitPane.setTopComponent(menuBar);
