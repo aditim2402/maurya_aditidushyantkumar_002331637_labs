@@ -12,7 +12,7 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private Supplier supplier;
-    public SupplierWorkAreaJPanel(JPanel upc, SupplierWorkAreaJPanel s) {
+    public SupplierWorkAreaJPanel(JPanel upc, Supplier s) {
         initComponents();
         userProcessContainer = upc;
         supplier = s;

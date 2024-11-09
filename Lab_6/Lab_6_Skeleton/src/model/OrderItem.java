@@ -12,6 +12,7 @@ public class OrderItem {
     Product product;
     double salesPrice;
     int quantity;
+   
 
     public OrderItem(Product product, double salesPrice, int quantity) {
         this.product = product;

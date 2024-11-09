@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.MasterOrderList;
+import model.Order;
+import model.OrderItem;
 import ui.SupplierRole.SupplierWorkAreaJPanel;
 
 
@@ -23,12 +25,14 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     SupplierDirectory supplierDirectory;
     MasterOrderList masterOrderList;
+    Order currentOrder;
     /** Creates new form BrowseProducts */
     public BrowseProductsJPanel(JPanel userProcessContainer, SupplierDirectory supplierDirectory, MasterOrderList masterOrderList) {
      initComponents();
      this.userProcessContainer= userProcessContainer;
      this.supplierDirectory= supplierDirectory;
      this.masterOrderList= masterOrderList;
+     this.currentOrder= new Order();
      populateCombo();
      populateProductTable();
     }
@@ -133,6 +137,11 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
         spnQuantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         btnAddToCart.setText("Add to Cart");
+        btnAddToCart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddToCartActionPerformed(evt);
+            }
+        });
 
         btnProductDetails.setText("View Product Details");
         btnProductDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -305,8 +314,8 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
             return;
         }
         Product product = (Product) tblProductCatalog.getValueAt(ERROR, WIDTH);
-        SupplierWorkAreaJPanel vdp = new SupplierWorkAreaJPanel(userProcessContainer, vdp);
-        userProcessContainer.add("SupplierWorkAreaJPanel", vdp);
+        ViewProductDetailJPanel vpdp = new ViewProductDetailJPanel(userProcessContainer, product);
+        userProcessContainer.add("SupplierWorkAreaJPanel", vpdp);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         
@@ -334,6 +343,51 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
     private void btnViewOrderItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderItemActionPerformed
         
     }//GEN-LAST:event_btnViewOrderItemActionPerformed
+
+    private void btnAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartActionPerformed
+        int selectedRowIndex= tblProductCatalog.getSelectedRow();
+        if(selectedRowIndex <0){
+            JOptionPane.showMessageDialog(this,"Please select the product first");
+            return;
+        }
+        Product product =(Product) tblProductCatalog.getValueAt(selectedRowIndex,0);
+        double salesPrice =0;
+        int quant= 0;
+        try{
+            salesPrice = Double.parseDouble(txtSalesPrice.getText());
+            quant = (Integer)spnQuantity.getValue();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Please check the price and quantity fields");
+            return;
+        }
+        if(salesPrice<product.getPrice()){
+            JOptionPane.showMessageDialog(this, "Price should be more than it is set in the price");
+            return;
+        }
+        OrderItem item= currentOrder.findProduct(product);
+        if(item== null){
+            if(product.getAvail()>=quant){
+            currentOrder.addNewOrderItem(product, salesPrice, quant);
+            product.setAvail(product.getAvail()-quant);
+            
+            }else{
+                JOptionPane.showMessageDialog(this,"Please check product avaialability");
+            }
+        }
+        else{
+            int oldQuant= item.getQuantity();
+            if(item.getProduct().getAvail()+ oldQuant< quant){
+                JOptionPane.showMessageDialog(this, "Please check product availability");
+                return;
+            }
+            item.getProduct().setAvail(item.getProduct().getAvail()+oldQuant-quant);
+            item.setQuantity(quant);
+ 
+        }
+        populateProductTable();
+        populateCartTable();
+    }//GEN-LAST:event_btnAddToCartActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -403,5 +457,19 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
             model.addRow(row);
         }}
         }
+    }
+    private void populateCartTable() {
+        DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
+        model.setRowCount(0);
+
+        for (OrderItem oi : currentOrder.getOrderItemList()) {
+            Object row[] = new Object[4];
+            row[0] = oi;
+            row[1] = oi.getSalesPrice();
+            row[2] = oi.getQuantity();
+            row[3]= oi.getQuantity()*oi.getSalesPrice();
+            model.addRow(row);
+        }
+       
     }
 }
