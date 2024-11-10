@@ -30,7 +30,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtProdName" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                  <Component id="txtName" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
                   <Component id="txtId" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Component id="btnUpdate" min="-2" pref="121" max="-2" attributes="0"/>
@@ -60,7 +60,7 @@
               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblProductName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtProdName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -95,7 +95,7 @@
         <Property name="text" type="java.lang.String" value="Product Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtProdName">
+    <Component class="javax.swing.JTextField" name="txtName">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>

@@ -21,14 +21,13 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private Product product;
-    public ViewProductDetailJPanel(JPanel upc, Product p) {
+    public ViewProductDetailJPanel(JPanel userProcessContainer, Product product) {
         initComponents();
-        userProcessContainer= upc;
-        product = p;
-        txtName.setText(p.getProdName());
-        txtId.setText(String.valueOf(p.getModelNumber()));
-        txtPrice.setText(String.valueOf(p.getPrice()));
-        txtAvail.setText(String.valueOf(p.getAvail()));
+        this.userProcessContainer=userProcessContainer;
+        this.product=product;
+        txtName.setText(product.getProdName());
+        txtId.setText(String.valueOf(product.getModelNumber()));
+        txtPrice.setText(String.valueOf(product.getPrice()));
         
         
         
@@ -52,8 +51,6 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtAvail = new javax.swing.JTextField();
-        btnUpdate = new javax.swing.JButton();
-        btnSave = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(650, 600));
 
@@ -83,20 +80,6 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
 
         txtAvail.setEditable(false);
 
-        btnUpdate.setText("Update Product");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
-            }
-        });
-
-        btnSave.setText("Save");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,10 +102,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAvail, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnSave, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(txtAvail, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(152, Short.MAX_VALUE))
         );
 
@@ -151,11 +131,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAvail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addComponent(btnUpdate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSave)
-                .addContainerGap())
+                .addGap(320, 320, 320))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -165,26 +141,10 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
         
     }//GEN-LAST:event_backButton1ActionPerformed
-
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-            txtName.setEditable(true);
-            txtAvail.setEditable(true);
-            txtPrice.setEditable(true);
-            btnSave.setEnabled(true);
-            
-    }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        product.setPrice(Integer.parseInt(txtPrice.getText()));
-        product.setProdName(txtName.getText());
-        product.setAvail(Integer.parseInt(txtAvail.getText()));
-    }//GEN-LAST:event_btnSaveActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton1;
-    private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
