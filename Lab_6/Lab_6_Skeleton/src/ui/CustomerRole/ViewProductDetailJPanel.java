@@ -91,6 +91,11 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         });
 
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -168,6 +173,12 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
             btnSave.setEnabled(true);
             
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        product.setPrice(Integer.parseInt(txtPrice.getText()));
+        product.setProdName(txtName.getText());
+        product.setAvail(Integer.parseInt(txtAvail.getText()));
+    }//GEN-LAST:event_btnSaveActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

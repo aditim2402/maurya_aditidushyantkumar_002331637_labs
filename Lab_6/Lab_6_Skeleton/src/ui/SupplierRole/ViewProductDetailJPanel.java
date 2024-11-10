@@ -13,12 +13,12 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
     private Product product;
     public ViewProductDetailJPanel(JPanel upc, Product p) {
         initComponents();
-        this.userProcessContainer = upc;
-        this.product = p;
+        userProcessContainer = upc;
+        product = p;
         txtProdName.setText(product.getProdName());
         txtId.setText(String.valueOf(product.getModelNumber()));
         txtPrice.setText(String.valueOf(product.getPrice()));
-        txtAvail.setText(String.valueOf(product.getAvail()));
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -27,8 +27,6 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         lblTitle = new javax.swing.JLabel();
         lblProductName = new javax.swing.JLabel();
         txtProdName = new javax.swing.JTextField();
-        lblAvailability = new javax.swing.JLabel();
-        txtAvail = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         txtId = new javax.swing.JTextField();
@@ -45,10 +43,6 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         lblProductName.setText("Product Name:");
 
         txtProdName.setEditable(false);
-
-        lblAvailability.setText("Availability");
-
-        txtAvail.setEditable(false);
 
         btnUpdate.setText("Update Product");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +83,6 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblProductId, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblProductName, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblAvailability, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblPrice, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,11 +91,8 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(txtAvail, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(194, 194, 194))
+                .addGap(196, 196, 196))
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(btnBack)
@@ -129,15 +119,11 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPrice)
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAvailability)
-                    .addComponent(txtAvail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(59, 59, 59)
                 .addComponent(btnUpdate)
                 .addGap(18, 18, 18)
                 .addComponent(btnSave)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -145,14 +131,12 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
 
         //txtId.setEditable(true);
         txtProdName.setEditable(true);
-        txtAvail.setEditable(true);
+        txtPrice.setEditable(true);
         btnSave.setEnabled(true);
 }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout= (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -166,7 +150,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        product.setPrice(Integer.parseInt(txtAvail.getText()));
+        product.setPrice(Integer.parseInt(txtPrice.getText()));
         product.setProdName(txtProdName.getText());
     }//GEN-LAST:event_btnSaveActionPerformed
    
@@ -174,12 +158,10 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JLabel lblAvailability;
     private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblProductId;
     private javax.swing.JLabel lblProductName;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextField txtAvail;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtProdName;

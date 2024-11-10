@@ -26,7 +26,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblProductId" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="lblProductName" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblAvailability" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="lblPrice" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -37,13 +36,9 @@
                       <Component id="btnUpdate" min="-2" pref="121" max="-2" attributes="0"/>
                       <Component id="btnSave" min="-2" pref="123" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Component id="txtAvail" min="-2" pref="159" max="-2" attributes="0"/>
-                  </Group>
                   <Component id="txtPrice" min="-2" pref="159" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -77,16 +72,11 @@
                   <Component id="lblPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtPrice" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAvailability" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAvail" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Component id="btnUpdate" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="260" max="32767" attributes="0"/>
+              <EmptySpace pref="263" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -106,16 +96,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtProdName">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblAvailability">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Availability"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtAvail">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
