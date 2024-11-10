@@ -4,10 +4,7 @@ import model.Supplier;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Mihir Mehta / Hechen Gao
- */
+
 public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;

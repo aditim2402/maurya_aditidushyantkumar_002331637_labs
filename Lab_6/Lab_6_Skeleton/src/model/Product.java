@@ -5,10 +5,7 @@
  */
 package model;
 
-/**
- *
- * @author archil
- */
+
 public class Product {
 
     private String prodName;

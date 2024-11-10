@@ -8,10 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
-/**
- *
- * @author Mihir Mehta / Hechen Gao
- */
+
 public class CreateNewProductJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;

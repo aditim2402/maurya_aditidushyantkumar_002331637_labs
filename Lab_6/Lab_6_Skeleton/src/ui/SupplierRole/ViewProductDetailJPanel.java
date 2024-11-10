@@ -6,10 +6,7 @@ import java.awt.Component;
 import javax.swing.JPanel;
 import model.Product;
 
-/**
- *
- * @author Mihir Mehta / Hechen Gao
- */
+
 public class ViewProductDetailJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;

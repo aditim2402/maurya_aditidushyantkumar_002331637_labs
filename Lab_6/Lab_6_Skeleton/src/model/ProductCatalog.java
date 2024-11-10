@@ -8,10 +8,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author archil
- */
+
 public class ProductCatalog {
 
     private List<Product> productCatalog;

@@ -13,10 +13,7 @@ import ui.AdminRole.AdminWorkAreaJPanel;
 import ui.CustomerRole.CustomerWorkAreaJPanel;
 import ui.SupplierRole.LoginSupplierJPanel;
 
-/**
- *
- * @author archil
- */
+
 public class MainJFrame extends javax.swing.JFrame {
 
     /**

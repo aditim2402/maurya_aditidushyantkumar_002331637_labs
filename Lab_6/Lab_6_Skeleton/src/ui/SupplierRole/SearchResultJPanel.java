@@ -5,10 +5,7 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Mihir Mehta / Hechen Gao
- */
+
 public class SearchResultJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;

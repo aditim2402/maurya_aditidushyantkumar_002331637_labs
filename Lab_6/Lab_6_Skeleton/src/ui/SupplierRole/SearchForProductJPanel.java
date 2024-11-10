@@ -7,10 +7,7 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Mihir Mehta / Hechen Gao
- */
+
 public class SearchForProductJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;

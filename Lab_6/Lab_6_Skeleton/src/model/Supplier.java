@@ -5,10 +5,7 @@
  */
 package model;
 
-/**
- *
- * @author archil
- */
+
 public class Supplier {
 
     private String supplyName;

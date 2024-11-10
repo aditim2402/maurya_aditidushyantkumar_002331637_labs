@@ -5,10 +5,7 @@ import model.SupplierDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Mihir Mehta / Hechen Gao
- */
+
 public class LoginSupplierJPanel extends javax.swing.JPanel {
     
     private JPanel userProcessContainer;
@@ -18,7 +15,7 @@ public class LoginSupplierJPanel extends javax.swing.JPanel {
         userProcessContainer = upc;
         supplierDirectory = sd;
         
-        cmbSupplier.removeAllItems();;
+        cmbSupplier.removeAllItems();
         for (Supplier supplier : supplierDirectory.getSupplierlist()) {
             cmbSupplier.addItem(supplier);
         }
