@@ -316,7 +316,7 @@ public class BrowseProductsJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please select the product first.");
             return;
         }
-        Product product = (Product) tblProductCatalog.getValueAt(ERROR, WIDTH);
+        Product product = (Product) tblProductCatalog.getValueAt(selectedRowIndex, 0);
         ViewProductDetailJPanel vpdp = new ViewProductDetailJPanel(userProcessContainer, product);
         userProcessContainer.add("SupplierWorkAreaJPanel", vpdp);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
