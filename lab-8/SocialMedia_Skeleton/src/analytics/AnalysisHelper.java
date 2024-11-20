@@ -30,8 +30,12 @@ public class AnalysisHelper {
         for (Comment c : comments.values()) {
             likeNumber += c.getLikes();
         }
+    final String RESET = "\u001B[0m";
+    final String RED = "\u001B[31m";
+    final String BLUE= "\u001B[34m";
+    final String Magenta="\u001B[35m";
         
-        System.out.println("Average number of likes per comments: " + likeNumber / commentNumber);
+        System.out.println(Magenta+ "Q1- Average number of likes per comments: " + likeNumber / commentNumber);
             
     }
     public void getMaxLikeCommentPost(){
@@ -47,9 +51,13 @@ public class AnalysisHelper {
                 
             }
         }
+    final String RESET = "\u001B[0m";
+    final String RED = "\u001B[31m";
+    final String BLUE= "\u001B[34m";
+    final String Magenta="\u001B[35m";
         int postId = commentWithMaxLikes.getPostId();
     
-         System.out.println("Q2- post with most likes per comment"+ data.getPosts().get(postId).getPostId());
+         System.out.println(RED+ "Q2- post with most likes per comment"+ data.getPosts().get(postId).getPostId());
     }
     public void getPostWithMostComments(){
         DataStore data= DataStore.getInstance();
@@ -64,7 +72,10 @@ public class AnalysisHelper {
                 
             }
         }
-        System.out.println("Q3- post with most comments" + postWithMostComments.getPostId());
+    final String RESET = "\u001B[0m";
+    final String RED = "\u001B[31m";
+    final String BLUE= "\u001B[34m";
+        System.out.println(BLUE+ "Q3- post with most comments" + postWithMostComments.getPostId());
     }
     
     public void getPassiveUsers(){
@@ -79,11 +90,14 @@ public class AnalysisHelper {
             }
         
         }
+        final String RESET = "\u001B[0m";
+        final String RED = "\u001B[31m";
+        final String YELLOW = "\u001B[33m";
          ArrayList<User> users= new ArrayList(data.getUsers().values());
          Collections.sort(users, new UserMapComparator(postNumbers));
          System.out.println("Q4- The following users have the least posts:");
          for(int i=0; i<5; i++){
-             System.out.println(users.get(i)+",- Post count"+ postNumbers.get(users.get(i).getId()));
+             System.out.println(RED + users.get(i) + ",- Post count " + postNumbers.get(users.get(i).getId()) + RESET);
              
          }
          
@@ -102,11 +116,14 @@ public class AnalysisHelper {
             }
         
         }
+        final String RESET = "\u001B[0m";
+        final String RED = "\u001B[31m";
+        final String GREEN= "\u001B[32m";
          ArrayList<User> users= new ArrayList(data.getUsers().values());
          Collections.sort(users, new UserMapComparator(commentNumbers));
          System.out.println("Q5- The following users have the least comments:");
          for(int i=0; i<5; i++){
-             System.out.println(users.get(i)+"Comment count"+ commentNumbers.get(users.get(i).getId()));
+             System.out.println(GREEN+ users.get(i)+"Comment count"+ commentNumbers.get(users.get(i).getId()));
              
          }
     }
@@ -126,7 +143,10 @@ public class AnalysisHelper {
         int userId = p.getUserId();
         overallNumbers.put(userId, overallNumbers.getOrDefault(userId, 0) + 1);
     }
-
+    final String RESET = "\u001B[0m";
+    final String RED = "\u001B[31m";
+    final String BLUE= "\u001B[34m";
+    final String Magenta="\u001B[35m";
     // Get all users and sort based on overall numbers
     ArrayList<User> users = new ArrayList<>(data.getUsers().values());
     Collections.sort(users, new UserMapComparator(overallNumbers));
@@ -135,14 +155,14 @@ public class AnalysisHelper {
     System.out.println("Q6- The following users have overall been passive:");
     for (int i = 0; i < Math.min(5, users.size()); i++) {
         User user = users.get(i);
-        System.out.println(user + ",- Overall count:" + overallNumbers.get(user.getId()));
+        System.out.println(BLUE+ user + ",- Overall count:" + overallNumbers.get(user.getId()));
     }
 
     // Output active users
     System.out.println("Q7- The following users have overall been active:");
     for (int i = users.size() - 1; i >= Math.max(users.size() - 5, 0); i--) {
         User user = users.get(i);
-        System.out.println(user + "-Overall count" + overallNumbers.get(user.getId()));
+        System.out.println(Magenta+ user + "-Overall count" + overallNumbers.get(user.getId()));
     }
 
         }
