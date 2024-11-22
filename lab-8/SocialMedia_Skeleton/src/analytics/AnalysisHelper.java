@@ -31,8 +31,6 @@ public class AnalysisHelper {
             likeNumber += c.getLikes();
         }
     final String RESET = "\u001B[0m";
-    final String RED = "\u001B[31m";
-    final String BLUE= "\u001B[34m";
     final String Magenta="\u001B[35m";
         
         System.out.println(Magenta+ "Q1- Average number of likes per comments: " + likeNumber / commentNumber);
@@ -53,8 +51,8 @@ public class AnalysisHelper {
         }
     final String RESET = "\u001B[0m";
     final String RED = "\u001B[31m";
-    final String BLUE= "\u001B[34m";
-    final String Magenta="\u001B[35m";
+    
+   
         int postId = commentWithMaxLikes.getPostId();
     
          System.out.println(RED+ "Q2- post with most likes per comment"+ data.getPosts().get(postId).getPostId());
@@ -92,7 +90,7 @@ public class AnalysisHelper {
         }
         final String RESET = "\u001B[0m";
         final String RED = "\u001B[31m";
-        final String YELLOW = "\u001B[33m";
+        
          ArrayList<User> users= new ArrayList(data.getUsers().values());
          Collections.sort(users, new UserMapComparator(postNumbers));
          System.out.println("Q4- The following users have the least posts:");
@@ -116,8 +114,7 @@ public class AnalysisHelper {
             }
         
         }
-        final String RESET = "\u001B[0m";
-        final String RED = "\u001B[31m";
+        
         final String GREEN= "\u001B[32m";
          ArrayList<User> users= new ArrayList(data.getUsers().values());
          Collections.sort(users, new UserMapComparator(commentNumbers));
@@ -143,8 +140,7 @@ public class AnalysisHelper {
         int userId = p.getUserId();
         overallNumbers.put(userId, overallNumbers.getOrDefault(userId, 0) + 1);
     }
-    final String RESET = "\u001B[0m";
-    final String RED = "\u001B[31m";
+   
     final String BLUE= "\u001B[34m";
     final String Magenta="\u001B[35m";
     // Get all users and sort based on overall numbers
