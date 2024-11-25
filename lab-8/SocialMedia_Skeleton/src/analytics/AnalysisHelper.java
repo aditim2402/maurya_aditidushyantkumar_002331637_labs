@@ -125,43 +125,42 @@ public class AnalysisHelper {
          }
     }
     
-    public void getPassiveAndActiveOverallUsers(){
-            DataStore data = DataStore.getInstance();
-    HashMap<Integer, Integer> overallNumbers = new HashMap<>();
-
-    // Aggregate data from comments
-    for (Comment c : data.getComments().values()) {
-        int userId = c.getUserId();
-        overallNumbers.put(userId, overallNumbers.getOrDefault(userId, 0) + 1 + c.getLikes());
-    }
-
-    // Aggregate data from posts
-    for (Post p : data.getPosts().values()) {
-        int userId = p.getUserId();
-        overallNumbers.put(userId, overallNumbers.getOrDefault(userId, 0) + 1);
-    }
-   
-    final String BLUE= "\u001B[34m";
-    final String Magenta="\u001B[35m";
-    // Get all users and sort based on overall numbers
-    ArrayList<User> users = new ArrayList<>(data.getUsers().values());
-    Collections.sort(users, new UserMapComparator(overallNumbers));
-
-    // Output passive users
-    System.out.println("Q6- The following users have overall been passive:");
-    for (int i = 0; i < Math.min(5, users.size()); i++) {
-        User user = users.get(i);
-        System.out.println(BLUE+ user + ",- Overall count:" + overallNumbers.get(user.getId()));
-    }
-
-    // Output active users
-    System.out.println("Q7- The following users have overall been active:");
-    for (int i = users.size() - 1; i >= Math.max(users.size() - 5, 0); i--) {
-        User user = users.get(i);
-        System.out.println(Magenta+ user + "-Overall count" + overallNumbers.get(user.getId()));
-    }
-
-        }
+   public void getPassiveAndActiveOverallUsers(){
+          DataStore data=DataStore.getInstance();
+          HashMap<Integer,Integer> overallNumbers=new HashMap<Integer,Integer>();
+          for(Comment c:data.getComments().values()){
+              int userId=c.getUserId();
+              if(overallNumbers.containsKey(userId)){
+                  overallNumbers.put(userId, overallNumbers.get(userId)+ 1+c.getLikes());
+              }
+              else{
+                  overallNumbers.put(userId,1+c.getLikes());
+              }
+          }
+          
+          for(Post p:data.getPosts().values()){
+              int userId=p.getUserId();
+              if(overallNumbers.containsKey(userId)){
+                  overallNumbers.put(userId,overallNumbers.get(userId)+1);     
+          }else{
+                  overallNumbers.put(userId,1);
+              }
+      }
+          final String RED = "\u001B[31m";
+          final String BLUE= "\u001B[34m";
+          final String Magenta="\u001B[35m";
+          ArrayList<User> users=new ArrayList(data.getUsers().values());
+          Collections.sort(users,new UserMapComparator(overallNumbers));
+          System.out.println("Q6-The following users have overall been passive: ");
+          for(int i=0;i<5;i++){
+              System.out.println(BLUE+ users.get(i)+",- Overall count: " +  overallNumbers.get(users.get(i).getId()));
+}
+          Collections.sort(users,new UserMapComparator(overallNumbers));
+          System.out.println("Q7-The following users have overall been active: ");
+          for(int i=users.size()-1;i>users.size()-6;i--){
+          System.out.println(Magenta+ users.get(i)+",- Overall count: "+overallNumbers.get(users.get(i).getId()));
+      }
+      }
     }
     
 
